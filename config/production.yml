@@ -1,0 +1,7 @@
+tilde:
+  url: http://tilde.town
+  user-script-dir: .tambda
+http:
+  port: 3002
+mongo:
+  connectionString: ${ENV.TAMBDA_MONGO_CONNECTION}

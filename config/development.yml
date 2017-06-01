@@ -1,0 +1,7 @@
+tilde:
+  url: http://tilde.town
+  user-script-dir: .tambda
+http:
+  port: 3002
+mongo:
+  connectionString: mongodb://127.0.0.1/tambda-dev

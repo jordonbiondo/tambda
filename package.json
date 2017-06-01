@@ -1,0 +1,27 @@
+{
+    "name": "tambda",
+    "version": "1.0.0",
+    "description": "tilde api",
+    "main": "server.js",
+    "scripts": {
+        "dev-server": "./node_modules/nodemon/bin/nodemon.js server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "express": "^4.15.3",
+        "lodash": "^4.17.4",
+        "md5": "^2.2.1",
+        "mongodb": "^2.2.27",
+        "request-promise-native": "^1.0.4",
+        "vm2": "^3.4.6",
+        "yaml": "^0.3.0"
+    },
+    "devDependencies": {
+        "eslint": "^3.19.0",
+        "eslint-config-standard": "^10.2.1",
+        "nodemon": "^1.11.0"
+    }
+}
