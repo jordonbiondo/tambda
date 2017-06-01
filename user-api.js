@@ -12,7 +12,6 @@ const buildTildeURL = (user, scriptName) => {
 
 const buildVM = (user) => {
     const {NodeVM: VM2} = require('vm2')
-    console.log(userModuleFactory(user))
     const vm = new VM2({
         require: {
             mock: userModuleFactory(user)
