@@ -5,7 +5,8 @@
     "main": "server.js",
     "scripts": {
         "dev-server": "./node_modules/nodemon/bin/nodemon.js server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint './**/*.js'"
     },
     "author": "",
     "license": "ISC",
@@ -14,7 +15,9 @@
         "express": "^4.15.3",
         "lodash": "^4.17.4",
         "md5": "^2.2.1",
+        "moment": "^2.18.1",
         "mongodb": "^2.2.27",
+        "morgan": "^1.8.2",
         "request": "^2.81.0",
         "request-promise-native": "^1.0.4",
         "vm2": "^3.4.6",
@@ -23,6 +26,10 @@
     "devDependencies": {
         "eslint": "^3.19.0",
         "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-import": "^2.3.0",
+        "eslint-plugin-node": "^5.0.0",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-standard": "^3.0.1",
         "nodemon": "^1.11.0"
     }
 }

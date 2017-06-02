@@ -21,18 +21,31 @@ const buildVM = (user) => {
     vm.freeze(log, 'log')
     return vm
 }
+
 module.exports = router
     .post('/:user/:scriptName', [
         async (req, res, next) => {
-            const {user} = req.params
+            const {user, scriptName} = req.params
             const vm = buildVM(user)
+            const url = buildTildeURL(user, scriptName)
             try {
-                const url = buildTildeURL(req.params.user, req.params.scriptName)
                 const output = await request(url)
-                let functionInSandbox = vm.run(output)
-                const result = await functionInSandbox(_.cloneDeep(req.body))
-                res.send(200, result)
+                let tambdaFn = vm.run(output)
+
+                if (!(tambdaFn instanceof Function)) {
+                    res
+                        .status(422)
+                        .send(`The following script is not a valid tambda method: ${url}`)
+                    return
+                }
+
+                const result = await tambdaFn(_.cloneDeep(req.body))
+                res.status(200).send(result)
             } catch (e) {
+                if (e && e.statusCode === 404) {
+                    res.status(400).send(`No script found at ${url}`)
+                    return
+                }
                 next(e)
             }
         }
